@@ -1,5 +1,22 @@
 from django.db import models
+class Hobby(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def _str_(self):
+        return self.name
+    
+class Subject(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def _str_(self):
+        return self.name
 
+class Result(models.Model):
+    mark = models.FloatField()
+    subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
+    def _str_(self):
+        return self.subject.name
+    
 class Student(models.Model):
     RELIGION = {
     "Hindu": "Hindu",
@@ -13,7 +30,6 @@ class Student(models.Model):
     "Female": "Female",
     "Others": "Others",
 }
-    prime_id = models.AutoField(primary_key=True,unique=True, editable=False,null=False)
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
     image = models.ImageField(upload_to='image/',default='def.png')
@@ -27,6 +43,9 @@ class Student(models.Model):
     city = models.CharField(max_length=100)
     is_Bangledeshi = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    result =models.ManyToManyField(Result)
+    hobby =  models.OneToOneField(Hobby,on_delete=models.CASCADE, )
+    subject = models.ManyToManyField(Subject)
 
     def _str_(self):
         return f'{self.name}"s Profile'

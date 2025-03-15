@@ -1,18 +1,11 @@
 [
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
+        "label": "django.db.models.deletion",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
         "documentation": {}
     },
     {
@@ -166,17 +159,8 @@
         "kind": 6,
         "importPath": "StudentApp.migrations.0001_initial",
         "description": "StudentApp.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Student',\n            fields=[\n                ('prime_id', models.AutoField(editable=False, primary_key=True, serialize=False, unique=True)),\n                ('name', models.CharField(max_length=100)),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Hobby',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=100)),",
         "detail": "StudentApp.migrations.0001_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "StudentApp.migrations.0002_student_image_alter_student_email",
-        "description": "StudentApp.migrations.0002_student_image_alter_student_email",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('StudentApp', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='student',\n            name='image',\n            field=models.ImageField(default='def.png', upload_to='image/'),\n        ),",
-        "detail": "StudentApp.migrations.0002_student_image_alter_student_email",
         "documentation": {}
     },
     {
@@ -184,7 +168,7 @@
         "kind": 6,
         "importPath": "StudentApp.admin",
         "description": "StudentApp.admin",
-        "peekOfCode": "class StudentAdmin(admin.ModelAdmin):\n    list_display = [\"name\", \"email\", \"age\",\"date_of_birth\",\"religion\",]\n    search_fields = [\"name\", \"email\", \"age\",\"date_of_birth\",\"religion\",]\nadmin.site.register(Student,StudentAdmin)",
+        "peekOfCode": "class StudentAdmin(admin.ModelAdmin):\n    list_display = [\"name\", \"email\", \"age\",\"date_of_birth\",\"religion\",]\n    search_fields = [\"name\", \"email\", \"age\",\"date_of_birth\",\"religion\",]\nadmin.site.register(Student,StudentAdmin)\nadmin.site.register(Subject)\nadmin.site.register(Hobby)\nadmin.site.register(Result)",
         "detail": "StudentApp.admin",
         "documentation": {}
     },
@@ -195,6 +179,33 @@
         "description": "StudentApp.apps",
         "peekOfCode": "class StudentappConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'StudentApp'",
         "detail": "StudentApp.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Hobby",
+        "kind": 6,
+        "importPath": "StudentApp.models",
+        "description": "StudentApp.models",
+        "peekOfCode": "class Hobby(models.Model):\n    name = models.CharField(max_length=100)\n    def _str_(self):\n        return self.name\nclass Subject(models.Model):\n    name = models.CharField(max_length=100)\n    def _str_(self):\n        return self.name\nclass Result(models.Model):\n    mark = models.FloatField()",
+        "detail": "StudentApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "Subject",
+        "kind": 6,
+        "importPath": "StudentApp.models",
+        "description": "StudentApp.models",
+        "peekOfCode": "class Subject(models.Model):\n    name = models.CharField(max_length=100)\n    def _str_(self):\n        return self.name\nclass Result(models.Model):\n    mark = models.FloatField()\n    subject = models.ForeignKey(Subject,on_delete=models.CASCADE)\n    def _str_(self):\n        return self.subject.name\nclass Student(models.Model):",
+        "detail": "StudentApp.models",
+        "documentation": {}
+    },
+    {
+        "label": "Result",
+        "kind": 6,
+        "importPath": "StudentApp.models",
+        "description": "StudentApp.models",
+        "peekOfCode": "class Result(models.Model):\n    mark = models.FloatField()\n    subject = models.ForeignKey(Subject,on_delete=models.CASCADE)\n    def _str_(self):\n        return self.subject.name\nclass Student(models.Model):\n    RELIGION = {\n    \"Hindu\": \"Hindu\",\n    \"Muslim\": \"Muslim\",\n    \"Christian\": \"Christian\",",
+        "detail": "StudentApp.models",
         "documentation": {}
     },
     {
