@@ -247,7 +247,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def firstFun(request):\n    return render(request,'Home/Home.html')",
+        "peekOfCode": "def firstFun(request):\n    Students = Student.objects.all()\n    return render(request,'Home/Home.html',{'stu':Students})",
         "detail": "StudentApp.views",
         "documentation": {}
     },
@@ -274,7 +274,7 @@
         "kind": 5,
         "importPath": "studentProject.settings",
         "description": "studentProject.settings",
-        "peekOfCode": "SECRET_KEY = os.getenv('Secret_code')\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
+        "peekOfCode": "SECRET_KEY = os.getenv('Secret_code')\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'tailwind',\n    'django.contrib.admin',\n    'django.contrib.auth',",
         "detail": "studentProject.settings",
         "documentation": {}
     },
@@ -283,7 +283,7 @@
         "kind": 5,
         "importPath": "studentProject.settings",
         "description": "studentProject.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'tailwind',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "studentProject.settings",
         "documentation": {}
     },
@@ -292,7 +292,7 @@
         "kind": 5,
         "importPath": "studentProject.settings",
         "description": "studentProject.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'tailwind',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
         "detail": "studentProject.settings",
         "documentation": {}
     },
@@ -301,7 +301,7 @@
         "kind": 5,
         "importPath": "studentProject.settings",
         "description": "studentProject.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'StudentApp',\n]",
+        "peekOfCode": "INSTALLED_APPS = [\n    'jazzmin',\n    'tailwind',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'StudentApp',",
         "detail": "studentProject.settings",
         "documentation": {}
     },

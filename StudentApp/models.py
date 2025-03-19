@@ -32,7 +32,7 @@ class Student(models.Model):
 }
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
-    image = models.ImageField(upload_to='image/',default='def.png')
+    image = models.ImageField(upload_to='images/',default='def.png')
     mother_name= models.CharField(max_length=100)
     father_name = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
@@ -43,9 +43,9 @@ class Student(models.Model):
     city = models.CharField(max_length=100)
     is_Bangledeshi = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    subject = models.ManyToManyField(Subject)
     result =models.ManyToManyField(Result)
     hobby =  models.OneToOneField(Hobby,on_delete=models.CASCADE, )
-    subject = models.ManyToManyField(Subject)
 
     def _str_(self):
         return f'{self.name}"s Profile'

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="w-full p-5">
+      {% for i in stu %}
+      <div class="grid grid-cols-3 pt-2 ">  
+        <div class="shadow-md bg-gray-500 p-4 bg-white rounded-lg">
+          <img class="w-20 h-20 rounded-full object-cover" src="{{ i.image.url }}" alt="" />
+          <h3 class="mt-4 text-xl font-semibold">{{i.name}}</h3>
+          <p><strong>ID:</strong>{{i.id}}</p>
+          <p><strong>Bangladeshi :</strong>{{i.is_Bangledeshi}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </body>
+</html>
