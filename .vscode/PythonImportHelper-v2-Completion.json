@@ -113,6 +113,14 @@
         "documentation": {}
     },
     {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -247,7 +255,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def firstFun(request):\n    Students = Student.objects.all()\n    return render(request,'Home/Home.html',{'stu':Students})",
+        "peekOfCode": "def firstFun(request):\n    Students = Student.objects.all()\n    if request.method == 'GET':\n        data = request.GET.get('src')\n        if data:\n            Students = Student.objects.filter(Q(name__icontains=data) | Q(email__icontains=data))\n    return render(request,'Home/Home.html',{'stu':Students})",
         "detail": "StudentApp.views",
         "documentation": {}
     },

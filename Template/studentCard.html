@@ -9,12 +9,25 @@
   <body>
     <section class="w-full p-5">
       {% for i in stu %}
-      <div class="grid grid-cols-3 pt-2 ">  
-        <div class="shadow-md bg-gray-500 p-4 bg-white rounded-lg">
-          <img class="w-20 h-20 rounded-full object-cover" src="{{ i.image.url }}" alt="" />
-          <h3 class="mt-4 text-xl font-semibold">{{i.name}}</h3>
-          <p><strong>ID:</strong>{{i.id}}</p>
-          <p><strong>Bangladeshi :</strong>{{i.is_Bangledeshi}}</p>
+      <div class="grid grid-cols-3 pt-2">
+        <div class="shadow-md bg-gray-500 p-4 bg-white rounded-lg flex items-center">
+          <img
+            class="w-20 h-20 rounded-full object-cover"
+            src="{{ i.image.url }}"
+            alt=""
+          />
+          <div class="flex flex-col justify-between ml-4">
+            <div>
+              <h3 class="mt-4 text-xl font-semibold">{{i.name}}</h3>
+              <p><strong>ID:</strong>{{i.id}}</p>
+              <p><strong>Mail:</strong>{{i.email}}</p>
+              <p><strong>Bangladeshi :</strong>{{i.is_Bangledeshi}}</p>
+            </div>
+            <div class="items-end">
+              <p class="text-sm text-green-500 cursor-pointer">Update</p>
+              <p class="text-sm text-red-500 cursor-pointer">Delete</p>
+            </div>
+          </div>
         </div>
       </div>
       {% endfor %}

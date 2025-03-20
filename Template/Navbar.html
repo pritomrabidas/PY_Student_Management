@@ -7,53 +7,86 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-     <nav class="bg-blue-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <!-- Logo -->
-                    <a href="#" class="flex items-center text-white font-bold text-xl">
-                        <svg class="w-8 h-8 mr-2" fill="white" viewBox="0 0 20 20"><path d="M10 0L3 5v10l7 5 7-5V5l-7-5z"/></svg>
-                        Brand
-                    </a>
-                </div>
-
-                <!-- Menu -->
-                <div class="hidden items-center md:flex space-x-4">
-                    <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded">Home</a>
-                    <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded">About</a>
-                    <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded">Services</a>
-                    <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded">Contact</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-white focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-                        </svg>
-                    </button>
-                </div>
+    <nav class="bg-blue-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex">
+            <!-- Logo -->
+            <a href="#" class="flex items-center text-white font-bold text-xl">
+              <svg class="w-8 h-8 mr-2" fill="white" viewBox="0 0 20 20">
+                <path d="M10 0L3 5v10l7 5 7-5V5l-7-5z" />
+              </svg>
+              Brand
+            </a>
+          </div>
+          <form method="GET">
+            <div>
+              <input
+                type="text"
+                name="src"
+                placeholder="Search"
+                class="rounded-l-lg p-2 outline-none text-gray-800 border-gray-200 bg-white"
+              />
+              <button
+                type="submit"
+                class="px-8 rounded-r-lg bg-blue-500 text-white font-bold p-2 uppercase border-blue-500 border-t border-b border-r"
+              >Search</button>
             </div>
-        </div>
+          </form>
+          <!-- Menu -->
+          <div class="hidden items-center md:flex space-x-4">
+            <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded"
+              >Home</a
+            >
+            <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded"
+              >About</a
+            >
+            <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded"
+              >Services</a
+            >
+            <a href="#" class="text-white hover:bg-blue-400 px-3 py-2 rounded"
+              >Contact</a
+            >
+          </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-blue-700">
-            <a href="#" class="block text-white px-4 py-2">Home</a>
-            <a href="#" class="block text-white px-4 py-2">About</a>
-            <a href="#" class="block text-white px-4 py-2">Services</a>
-            <a href="#" class="block text-white px-4 py-2">Contact</a>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="text-white focus:outline-none">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-blue-700">
+        <a href="#" class="block text-white px-4 py-2">Home</a>
+        <a href="#" class="block text-white px-4 py-2">About</a>
+        <a href="#" class="block text-white px-4 py-2">Services</a>
+        <a href="#" class="block text-white px-4 py-2">Contact</a>
+      </div>
     </nav>
 
     <!-- JavaScript for Mobile Menu Toggle -->
     <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     </script>
   </body>
 </html>
