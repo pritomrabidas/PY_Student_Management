@@ -24,8 +24,8 @@
               <p><strong>Bangladeshi :</strong>{{i.is_Bangledeshi}}</p>
             </div>
             <div class="items-end">
-              <p class="text-sm text-green-500 cursor-pointer">Update</p>
-              <p class="text-sm text-red-500 cursor-pointer">Delete</p>
+              <a href="" class="text-sm text-green-500 cursor-pointer">Update</a>
+              <a href="{% url 'delete_prof' i.id %}" class="text-sm text-red-500 cursor-pointer">Delete</a>
             </div>
           </div>
         </div>

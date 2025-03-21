@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from .views import *
 urlpatterns = [
     path('', firstFun,name='first'),
+    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),
 ]
 
 if settings.DEBUG:

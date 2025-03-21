@@ -8,3 +8,8 @@ def firstFun(request):
         if data:
             Students = Student.objects.filter(Q(name__icontains=data) | Q(email__icontains=data))
     return render(request,'Home/Home.html',{'stu':Students})
+
+def delete_prof(request,id):
+    Students = Student.objects.get(id=id)
+    Students.delete()
+    return render(firstFun)
