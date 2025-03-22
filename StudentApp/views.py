@@ -13,3 +13,6 @@ def delete_prof(request,id):
     Students = Student.objects.get(id=id)
     Students.delete()
     return render(firstFun)
+
+def update(request):
+    return render(request,'Home/studentfile.html')

@@ -246,7 +246,7 @@
         "kind": 5,
         "importPath": "StudentApp.urls",
         "description": "StudentApp.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', firstFun,name='first'),\n    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path('', firstFun,name='first'),\n    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),\n    path('updates/', update,name='updates'),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "StudentApp.urls",
         "documentation": {}
     },
@@ -264,7 +264,16 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    Students.delete()\n    return render(firstFun)",
+        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    Students.delete()\n    return render(firstFun)\ndef update(request):\n    return render(request,'Home/studentfile.html')",
+        "detail": "StudentApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "update",
+        "kind": 2,
+        "importPath": "StudentApp.views",
+        "description": "StudentApp.views",
+        "peekOfCode": "def update(request):\n    return render(request,'Home/studentfile.html')",
         "detail": "StudentApp.views",
         "documentation": {}
     },
