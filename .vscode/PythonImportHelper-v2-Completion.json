@@ -113,6 +113,14 @@
         "documentation": {}
     },
     {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "Q",
         "importPath": "django.db.models",
         "description": "django.db.models",
@@ -255,7 +263,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def firstFun(request):\n    Students = Student.objects.all()\n    if request.method == 'GET':\n        data = request.GET.get('src')\n        if data:\n            Students = Student.objects.filter(Q(name__icontains=data) | Q(email__icontains=data))\n    return render(request,'Home/Home.html',{'stu':Students})\ndef delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    Students.delete()",
+        "peekOfCode": "def firstFun(request):\n    Students = Student.objects.all()\n    if request.method == 'GET':\n        data = request.GET.get('src')\n        if data:\n            Students = Student.objects.filter(Q(name__icontains=data) | Q(email__icontains=data))\n    return render(request,'Home/Home.html',{'stu':Students})\ndef delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:",
         "detail": "StudentApp.views",
         "documentation": {}
     },
@@ -264,7 +272,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    Students.delete()\n    return render(firstFun)\ndef update(request):\n    return render(request,'Home/studentfile.html')",
+        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        if Students.image != 'def.jpeg':\n            os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef update(request):\n    return render(request,'Home/studentfile.html')",
         "detail": "StudentApp.views",
         "documentation": {}
     },

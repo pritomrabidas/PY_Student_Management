@@ -32,7 +32,7 @@ class Student(models.Model):
 }
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
-    image = models.ImageField(upload_to='images/',default='def.png',blank=True)
+    image = models.ImageField(upload_to='images/',default='def.jpeg',blank=True)
     mother_name= models.CharField(max_length=100)
     father_name = models.CharField(max_length=100)
     age = models.PositiveIntegerField()

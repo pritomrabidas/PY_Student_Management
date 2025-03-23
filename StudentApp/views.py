@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Student
 from django.db.models import Q
+import os
 def firstFun(request):
     Students = Student.objects.all()
     if request.method == 'GET':
@@ -11,8 +12,11 @@ def firstFun(request):
 
 def delete_prof(request,id):
     Students = Student.objects.get(id=id)
-    Students.delete()
-    return render(firstFun)
+    if Students:
+        if Students.image != 'def.jpeg':
+            os.remove(Students.image.path)
+        Students.delete()
+    return redirect(firstFun)
 
 def update(request):
     return render(request,'Home/studentfile.html')
