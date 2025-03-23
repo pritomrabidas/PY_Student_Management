@@ -5,7 +5,7 @@ from .views import *
 urlpatterns = [
     path('', firstFun,name='first'),
     path('delete_prof/<int:id>',delete_prof,name='delete_prof'),
-    path('updates/', update,name='updates'),
+    path('create/', create_prof,name='create'),
 ]
 
 if settings.DEBUG:

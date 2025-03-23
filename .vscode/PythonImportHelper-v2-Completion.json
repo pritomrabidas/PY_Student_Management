@@ -25,6 +25,38 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -196,6 +228,24 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "StudentApp.migrations.0002_alter_student_date_of_birth_alter_student_image",
+        "description": "StudentApp.migrations.0002_alter_student_date_of_birth_alter_student_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('StudentApp', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='student',\n            name='date_of_birth',\n            field=models.TextField(),\n        ),",
+        "detail": "StudentApp.migrations.0002_alter_student_date_of_birth_alter_student_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "StudentApp.migrations.0003_alter_student_is_bangledeshi",
+        "description": "StudentApp.migrations.0003_alter_student_is_bangledeshi",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('StudentApp', '0002_alter_student_date_of_birth_alter_student_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='student',\n            name='is_Bangledeshi',\n            field=models.BooleanField(default=True),\n        ),",
+        "detail": "StudentApp.migrations.0003_alter_student_is_bangledeshi",
+        "documentation": {}
+    },
+    {
         "label": "StudentAdmin",
         "kind": 6,
         "importPath": "StudentApp.admin",
@@ -254,7 +304,7 @@
         "kind": 5,
         "importPath": "StudentApp.urls",
         "description": "StudentApp.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', firstFun,name='first'),\n    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),\n    path('updates/', update,name='updates'),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path('', firstFun,name='first'),\n    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),\n    path('create/', create_prof,name='create'),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "StudentApp.urls",
         "documentation": {}
     },
@@ -272,16 +322,16 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        if Students.image != 'def.jpeg':\n            os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef update(request):\n    return render(request,'Home/studentfile.html')",
+        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        if Students.image != 'def.jpeg':\n            os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']",
         "detail": "StudentApp.views",
         "documentation": {}
     },
     {
-        "label": "update",
+        "label": "create_prof",
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def update(request):\n    return render(request,'Home/studentfile.html')",
+        "peekOfCode": "def create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']\n        email = request.POST.get('email')\n        image = request.FILES.get('image')\n        father_name = request.POST.get('father_name')    \n        mother_name = request.POST.get('mother_name')\n        age = request.POST.get('age')\n        date_of_birth = request.POST.get('date_of_birth')\n        religion = request.POST.get('religion')",
         "detail": "StudentApp.views",
         "documentation": {}
     },
