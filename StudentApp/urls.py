@@ -6,6 +6,7 @@ urlpatterns = [
     path('', firstFun,name='first'),
     path('delete_prof/<int:id>',delete_prof,name='delete_prof'),
     path('create/', create_prof,name='create'),
+    path('update/<int:id>', updateprof,name='update'),
 ]
 
 if settings.DEBUG:

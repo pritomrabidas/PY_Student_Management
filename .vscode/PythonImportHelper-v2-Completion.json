@@ -304,7 +304,7 @@
         "kind": 5,
         "importPath": "StudentApp.urls",
         "description": "StudentApp.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', firstFun,name='first'),\n    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),\n    path('create/', create_prof,name='create'),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path('', firstFun,name='first'),\n    path('delete_prof/<int:id>',delete_prof,name='delete_prof'),\n    path('create/', create_prof,name='create'),\n    path('update/<int:id>', updateprof,name='update'),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "StudentApp.urls",
         "documentation": {}
     },
@@ -322,7 +322,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        if Students.image != 'def.jpeg':\n            os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']",
+        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        # if Students.image != 'def.jpeg':\n        #     os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']",
         "detail": "StudentApp.views",
         "documentation": {}
     },
@@ -332,6 +332,15 @@
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
         "peekOfCode": "def create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']\n        email = request.POST.get('email')\n        image = request.FILES.get('image')\n        father_name = request.POST.get('father_name')    \n        mother_name = request.POST.get('mother_name')\n        age = request.POST.get('age')\n        date_of_birth = request.POST.get('date_of_birth')\n        religion = request.POST.get('religion')",
+        "detail": "StudentApp.views",
+        "documentation": {}
+    },
+    {
+        "label": "updateprof",
+        "kind": 2,
+        "importPath": "StudentApp.views",
+        "description": "StudentApp.views",
+        "peekOfCode": "def updateprof(request,id):\n    student = Student.objects.get(id=id)\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        email = request.POST.get('email')\n        image = request.FILES.get('image')\n        father_name = request.POST.get('father_name')    \n        mother_name = request.POST.get('mother_name')\n        age = request.POST.get('age')\n        date_of_birth = request.POST.get('date_of_birth')",
         "detail": "StudentApp.views",
         "documentation": {}
     },

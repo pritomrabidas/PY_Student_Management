@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>update</title>
+  </head>
+  <body>
+    <h2 class="text-center mx-auto flex justify-center pt-5">
+      Student Update Form
+    </h2>
+    <div class="pb-5">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="my-2">
+          <label for="name">Name:</label>
+          <input type="text" value="{{stu.name}}" id="name" name="name" />
+        </div>
+        <div class="my-2">
+          <label for="email">Email:</label>
+          <input type="email" value="{{stu.email}}" id="email" name="email" />
+        </div>
+        <div class="my-2">
+          <label for="image">Image:</label>
+          <input type="file" id="image" name="image" />
+          {% if stu.image %}
+          <img
+            src="{{ stu.image.url }}"
+            alt="Student Image"
+            width="100"
+            height="100"
+          />
+          {% endif %}
+        </div>
+        <div class="my-2">
+          <label for="mother_name">Mother's Name:</label>
+          <input
+            type="text"
+            value="{{stu.mother_name}}"
+            id="mother_name"
+            name="mother_name"
+          />
+        </div>
+        <div class="my-2">
+          <label for="father_name">Father's Name:</label>
+          <input
+            type="text"
+            value="{{stu.father_name}}"
+            id="father_name"
+            name="father_name"
+          />
+        </div>
+        <div class="my-2">
+          <label for="age">Age:</label>
+          <input type="number" value="{{stu.age}}" id="age" name="age" />
+        </div>
+        <div class="my-2">
+          <label for="date_of_birth">Date of Birth:</label>
+          <input
+            type="date"
+            value="{{stu.date_of_birth}}"
+            id="date_of_birth"
+            name="date_of_birth"
+          />
+        </div>
+        <div class="my-2">
+          <label for="religion">Religion:</label>
+          <select id="religion" name="religion">
+            <option value="Hindu">Hindu</option>
+            <option value="Muslim">Muslim</option>
+            <option value="Christian">Christian</option>
+            <option value="Buddhist">Buddhist</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div class="my-2">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div class="my-2">
+          <label for="roll">Roll:</label>
+          <input type="number" value="{{stu.roll}}" id="roll" name="roll" />
+        </div>
+        <div class="my-2">
+          <label for="city">City:</label>
+          <input type="text" value="{{stu.city}}" id="city" name="city" />
+        </div>
+
+        <label for="is_bangladeshi">Is Bangladeshi:</label>
+        <input
+          type="checkbox"
+          value="True"
+          id="is_bangladeshi"
+          name="is_bangladeshi"
+        />
+        <div class="my-2">
+          <label for="hobby">Hobby:</label>
+          <input type="text" value={{stu.hobby}} id="hobby" name="hobby" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
