@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -93,13 +94,20 @@
         <label for="is_bangladeshi">Is Bangladeshi:</label>
         <input
           type="checkbox"
-          value="True"
           id="is_bangladeshi"
           name="is_bangladeshi"
+          value="True"
+          {%
+          if
+          stu.is_bangladeshi
+          %}checked{%
+          endif
+          %}
         />
+
         <div class="my-2">
           <label for="hobby">Hobby:</label>
-          <input type="text" value={{stu.hobby}} id="hobby" name="hobby" />
+          <input type="text" value="{{stu.hobby}}" id="hobby" name="hobby" />
         </div>
         <button type="submit">Submit</button>
       </form>

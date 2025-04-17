@@ -129,6 +129,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "static",
         "importPath": "django.conf.urls.static",
         "description": "django.conf.urls.static",
@@ -322,7 +330,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        # if Students.image != 'def.jpeg':\n        #     os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']",
+        "peekOfCode": "def delete_prof(request,id):\n    Students = Student.objects.get(id=id)\n    if Students:\n        if Students.image != 'def.jpeg':\n            os.remove(Students.image.path)\n        Students.delete()\n    return redirect(firstFun)\ndef create_prof(request):\n    if request.method == 'POST':\n        name = request.POST['name']",
         "detail": "StudentApp.views",
         "documentation": {}
     },
@@ -340,7 +348,7 @@
         "kind": 2,
         "importPath": "StudentApp.views",
         "description": "StudentApp.views",
-        "peekOfCode": "def updateprof(request,id):\n    student = Student.objects.get(id=id)\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        email = request.POST.get('email')\n        image = request.FILES.get('image')\n        father_name = request.POST.get('father_name')    \n        mother_name = request.POST.get('mother_name')\n        age = request.POST.get('age')\n        date_of_birth = request.POST.get('date_of_birth')",
+        "peekOfCode": "def updateprof(request, id):\n    student = Student.objects.get(id=id)\n    if request.method == 'POST':\n        name = request.POST.get('name')\n        email = request.POST.get('email')\n        image = request.FILES.get('image')\n        father_name = request.POST.get('father_name')    \n        mother_name = request.POST.get('mother_name')\n        age = request.POST.get('age')\n        date_of_birth = request.POST.get('date_of_birth')",
         "detail": "StudentApp.views",
         "documentation": {}
     },
